@@ -7,7 +7,7 @@ A small web app that allows users to upload files (images or text) to AWS S3 clo
 ## Live Demo
 
 Check out the live app here:  
-https://file-uploader-peach.vercel.app/
+https://file-uploader-virid-sigma.vercel.app/
 
 ---
 
@@ -91,8 +91,8 @@ Set the following environment variables in your Vercel project settings:
 ## Screenshots
 
 _Add screenshots of the app and deployment here._  
-![Upload Form](./assets/upload-form.png)  
-![Successful Upload](./assets/upload-success.png)
+![Upload Form](./images/1.png)  
+![Successful Upload](./images/2.png)
 
 ---
 
