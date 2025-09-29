@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple File Uploader</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #0b0b0c;
+      --card: #151517;
+      --text: #e6e6e6;
+      --muted: #a1a1aa;
+      --primary: #6366f1;
+      --primary-hover: #4f46e5;
+      --border: #26262a;
+      --ring: #3b3b40;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      background: radial-gradient(800px 800px at 20% 0%, #111114 0%, var(--bg) 60%) no-repeat fixed;
+      color: var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+    .card {
+      width: 100%;
+      max-width: 520px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0)) border-box, var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .logo {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--primary), #14b8a6);
+      box-shadow: 0 6px 18px rgba(99,102,241,0.35);
+    }
+    h2 {
+      margin: 0;
+      font-size: 20px;
+      letter-spacing: 0.2px;
+      font-weight: 600;
+    }
+    p {
+      margin: 0 0 16px 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    form {
+      display: grid;
+      gap: 14px;
+      margin-top: 8px;
+    }
+    label {
+      font-size: 13px;
+      color: var(--muted);
+    }
+    input[type="file"] {
+      width: 100%;
+      padding: 10px;
+      color: var(--text);
+      background-color: #0f0f12;
+      border: 1px dashed var(--ring);
+      border-radius: 10px;
+    }
+    input[type="file"]::-webkit-file-upload-button {
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 8px 12px;
+      border-radius: 8px;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    button[type="submit"] {
+      appearance: none;
+      border: none;
+      border-radius: 10px;
+      padding: 12px 16px;
+      background: linear-gradient(180deg, var(--primary), var(--primary-hover));
+      color: white;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+      cursor: pointer;
+      transition: transform 0.06s ease, box-shadow 0.2s ease;
+      box-shadow: 0 10px 20px rgba(99,102,241,0.35), inset 0 -6px 14px rgba(0,0,0,0.25);
+    }
+    button[type="submit"]:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 26px rgba(99,102,241,0.4), inset 0 -6px 14px rgba(0,0,0,0.25);
+    }
+    button[type="submit"]:active {
+      transform: translateY(0);
+    }
+    .fineprint { font-size: 12px; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="card" role="region" aria-label="File uploader">
+    <div class="header">
+      <div class="logo" aria-hidden="true"></div>
+      <h2>Upload a File</h2>
+    </div>
+    <p>Choose an image or text file to upload.</p>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+      <label for="file">Select file</label>
+      <input id="file" type="file" name="file" accept="image/*,text/*" required />
+      <button type="submit">Upload</button>
+      <span class="fineprint">Max size depends on server settings.</span>
+    </form>
+  </div>
+</body>
+</html>
